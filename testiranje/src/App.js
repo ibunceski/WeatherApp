@@ -43,29 +43,6 @@ const App = () => {
     }
   };
 
-
-  // let signIn = () => {
-  //   const auth = getAuth();
-  //   signInAnonymously(auth)
-  //     .then(() => {})
-  //     .catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       console.log(errorCode, errorMessage);
-  //     });
-
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       setUserUID(user.uid);
-  //       addNewUser(user.uid);
-  //     } else {
-  //       console.log("User is signed out");
-  //     }
-  //   });
-  // };
-  
-  // signIn();
-
   useEffect(() => {
     const auth = getAuth();
 

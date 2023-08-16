@@ -86,24 +86,41 @@ const Search = (props) => {
       fontSize: "20px",
       color: "white",
       cursor: "pointer",
+      '@media (max-width: 600px)': {
+        width: "150px",
+        fontSize: "15px",
+        height: "5px",
+      }
     }),
     menu: (provided, state) => ({
       ...provided,
       backgroundColor: "rgba(255, 255, 255, 0.4)",
       color: "white",
       fontSize: "20px",
+      '@media (max-width: 600px)': {
+        fontSize: "13px",
+      }
     }),
     listbox: (provided, state) => ({
       ...provided,
       color: "white",
+      '@media (max-width: 600px)': {
+      
+      }
     }),
     input: (provided, state) => ({
       ...provided,
       color: "white",
+      '@media (max-width: 600px)': {
+      
+      }
     }),
     placeholder: (provided, state) => ({
       ...provided,
       color: "white",
+      '@media (max-width: 600px)': {
+      
+      }
     }),
     option: (provided, state) => ({
       ...provided,
@@ -111,18 +128,30 @@ const Search = (props) => {
         ? "rgba(255, 255, 255, 0.1)"
         : "rgba(255, 255, 255, 0.4)",
       color: "black",
+      '@media (max-width: 600px)': {
+      
+      }
     }),
     singleValue: (provided, state) => ({
       ...provided,
       color: "white",
+      '@media (max-width: 600px)': {
+      
+      }
     }),
     noOptionsMessage: (provided, state) => ({
       ...provided,
       color: "white",
+      '@media (max-width: 600px)': {
+      
+      }
     }),
     loadingMessage: (provided, state) => ({
       ...provided,
       color: "white",
+      '@media (max-width: 600px)': {
+      
+      }
     }),
   };
 

@@ -7,9 +7,9 @@ const Header = (props) => {
     return(
         <div className="header">
             <div className="header--logo">
-                <AiOutlineCloud className="cloud-icon" size={50}/>
+                <AiOutlineCloud className="cloud--icon" size={50}/>
                 {/* <h1>Oblache.mk</h1> */}
-                <h1>WeatherApp</h1>
+                <h1 className="header--title">WeatherApp</h1>
             </div>
             <div className="search--icon">
                 <Geolocation retrieveData={props.retrieveData}/>

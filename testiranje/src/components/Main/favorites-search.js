@@ -44,15 +44,23 @@ const FavoritesSearch = (props) => {
             border: 'none',
             borderRadius: '10px',
             textAlign: 'left',
-            fontSize: '20px',
+            fontSize: '15px',
             color: 'white',
             cursor: 'pointer',
+            '@media (max-width: 600px)': {
+                width: "175px",
+                fontSize: "12px",
+                height: "3px",
+              }
         }),
         menu: (provided, state) => ({
             ...provided,
             backgroundColor: 'rgba(255, 255, 255, 0.4)',
             color: 'white',
-            fontSize: '20px',
+            fontSize: '17px',
+            '@media (max-width: 600px)': {
+                fontSize: "12px",
+            }
         }),
         input: (provided, state) => ({
             ...provided,
@@ -64,7 +72,7 @@ const FavoritesSearch = (props) => {
         }),
         option: (provided, state) => ({
             ...provided,
-            backgroundColor: state.isFocused ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.4)',
+            backgroundColor: state.isFocused ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.5)',
             color: 'black',
         }),
         singleValue: (provided, state) => ({
@@ -82,7 +90,7 @@ const FavoritesSearch = (props) => {
       <AsyncPaginate
         styles={customStyles}
         className="search"
-        placeholder="Search"
+        placeholder="Add a new location"
         debounceTimeout={1000}
         value={search}
         onChange={handleOnChange}

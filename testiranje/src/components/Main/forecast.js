@@ -59,27 +59,27 @@ const Forecast = (props) => {
 
     return (
         <div className="forecast">
-            <div className="forecast--card day1">
+            <div className="forecast--card day1 day123">
                 <h3 className="dayName">{nextFiveDays[0].dayName}</h3>
                 <img className={`weather--icon--forecast`} src={`weather-icons/${icons[1]}`} alt="weather icon" />
                 <h3 className="minMax--temp">{Math.round(props.data.daily.temperature_2m_max[1])}° | {Math.round(props.data.daily.temperature_2m_min[1])}°</h3>
             </div>
-            <div className="forecast--card day2">
+            <div className="forecast--card day2 day123">
                 <h3 className="dayName">{nextFiveDays[1].dayName}</h3>
                 <img className="weather--icon--forecast"src={`weather-icons/${icons[2]}`} alt="weather icon" />
                 <h3 className="minMax--temp">{Math.round(props.data.daily.temperature_2m_max[2])}° | {Math.round(props.data.daily.temperature_2m_min[2])}°</h3>
             </div>
-            <div className="forecast--card day3">
+            <div className="forecast--card day3 day123">
                 <h3 className="dayName">{nextFiveDays[2].dayName}</h3>
                 <img className="weather--icon--forecast"src={`weather-icons/${icons[3]}`} alt="weather icon" />
                 <h3 className="minMax--temp">{Math.round(props.data.daily.temperature_2m_max[3])}° | {Math.round(props.data.daily.temperature_2m_min[3])}°</h3>
             </div>
-            <div className="forecast--card day4">
+            <div className="forecast--card day4 day45">
                 <h3 className="dayName">{nextFiveDays[3].dayName}</h3>
                 <img className="weather--icon--forecast"src={`weather-icons/${icons[4]}`} alt="weather icon" />
                 <h3 className="minMax--temp">{Math.round(props.data.daily.temperature_2m_max[4])}° | {Math.round(props.data.daily.temperature_2m_min[4])}°</h3>
             </div>
-            <div className="forecast--card day5">
+            <div className="forecast--card day5 day45">
                 <h3 className="dayName">{nextFiveDays[4].dayName}</h3>
                 <img className="weather--icon--forecast"src={`weather-icons/${icons[5]}`} alt="weather icon" />
                 <h3 className="minMax--temp">{Math.round(props.data.daily.temperature_2m_max[5])}° | {Math.round(props.data.daily.temperature_2m_min[5])}°</h3>

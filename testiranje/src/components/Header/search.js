@@ -7,7 +7,10 @@ import { db } from "../../firebase";
 const Search = (props) => {
   const [search, setSearch] = useState(null);
   const [searchHistory, setSearchHistory] = useState([]);
+  // const [options, setOptions] = useState([]);
   const { userUID } = props;
+
+  console.log("Search history:", searchHistory.slice(0, 4));
 
   useEffect(() => {
     if (!userUID) return;
@@ -42,9 +45,18 @@ const Search = (props) => {
     console.log("New item added:", newItem.label);
   };
 
+  // useEffect(() => {
+  //   if (searchHistory.length > 0) {
+  //     const options = searchHistory.slice(0, 4);
+  //     setOptions(options);
+  //   }
+  // }, [searchHistory]);
+
   const loadOptions = (inputValue) => {
     if (inputValue.length < 1)
       return ({ options: searchHistory.slice(0, 4)});
+      // return ({ options: options })
+      // console.log("")
     else {
       return fetch(
         `${GEODB_API_URL}?namePrefix=${inputValue}`,
@@ -158,6 +170,7 @@ const Search = (props) => {
   return (
     <div>
       <AsyncPaginate
+        key={searchHistory.length}
         styles={customStyles}
         className="search"
         placeholder="Search"
@@ -165,6 +178,7 @@ const Search = (props) => {
         value={search}
         onChange={handleOnChange}
         loadOptions={loadOptions}
+        cacheUniq={searchHistory}
       />
     </div>
   );

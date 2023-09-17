@@ -1,9 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { AsyncPaginate } from 'react-select-async-paginate';
 import { GEODB_API_OPTIONS, GEODB_API_URL } from '../../api.js';
 
 const FavoritesSearch = (props) => {
     const [search, setSearch] = useState(null);
+    const [isDisabled, setIsDisabled] = useState(true);
+
+    useEffect(() => {
+        setIsDisabled(props.favoritesNumber >= 3);
+    }, [props.favoritesNumber])
 
     const loadOptions = (inputValue) => {
         if(inputValue.length < 1) return Promise.resolve({options: []});
@@ -40,13 +45,14 @@ const FavoritesSearch = (props) => {
             marginLeft: '0.4rem',
             width: '95%',
             height: '2rem',
-            backgroundColor: 'rgba(255, 255, 255, 0.4)',
+            backgroundColor: isDisabled ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.4)',
             border: 'none',
             borderRadius: '10px',
             textAlign: 'left',
-            fontSize: '15px',
+            fontSize: '16px',
             color: 'white',
             cursor: 'pointer',
+            
             '@media (max-width: 600px)': {
                 width: "175px",
                 fontSize: "12px",
@@ -81,7 +87,7 @@ const FavoritesSearch = (props) => {
         }),
         noOptionsMessage: (provided, state) => ({
             ...provided,
-            color: 'white',
+            color: 'black',
         }),
     };
 
@@ -90,11 +96,12 @@ const FavoritesSearch = (props) => {
       <AsyncPaginate
         styles={customStyles}
         className="search"
-        placeholder="Add a new location"
+        placeholder= {isDisabled ? "You can add up to 3 cities" : "Add a new location"}
         debounceTimeout={1000}
         value={search}
         onChange={handleOnChange}
         loadOptions={loadOptions}
+        isDisabled={isDisabled}
       />
     </div>
     );

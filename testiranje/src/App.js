@@ -8,6 +8,7 @@ import { onSnapshot } from "firebase/firestore";
 import { users, db } from "./firebase";
 import { query, where } from "firebase/firestore";
 import { getAuth, signInAnonymously, onAuthStateChanged } from "firebase/auth";
+import LoadingScreen from "./components/loading-screen";
 
 const App = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -15,7 +16,7 @@ const App = () => {
   const [userUID, setUserUID] = useState(null);
   const [localUsers, setLocalUsers] = useState([]);
 
-  const [userID, setUserID] = useState(null);
+  const [FirebaseID, setFirebaseID] = useState(null);
 
   let addNewUser = async (userUID) => {
     console.log("User UID:", userUID);
@@ -34,11 +35,11 @@ const App = () => {
         };
         const newUserRef = await addDoc(usersCollectionRef, newUser);
         setLocalUsers([...localUsers, newUser]);
-        setUserID(newUserRef.id);
+        setFirebaseID(newUserRef.id);
         console.log("New user added:", newUserRef.id);
       } else {
-        setUserID(existingDocs.docs[0].id);
-        console.log("User with the same UID already exists.");
+        setFirebaseID(existingDocs.docs[0].id);
+        console.log("User with the same UID already exists.", existingDocs.docs[0].id);
       }
     }
   };
@@ -105,11 +106,13 @@ const App = () => {
 
   return (
     <div className="app">
-      <Header retrieveData={retrieveData} userUID={userID} />
+      {FirebaseID==null &&<LoadingScreen />}
+      {FirebaseID && <Header retrieveData={retrieveData} userUID={FirebaseID} />}
       <div className="main">
-        {userID && <Favorites retrieveData={retrieveData} userUID={userID} />}
+        {FirebaseID && <Favorites retrieveData={retrieveData} userUID={FirebaseID} />}
         {weatherData && forecastData && (
-          <WeatherData data={weatherData} forecastData={forecastData} />
+          <WeatherData key={weatherData.name} data={weatherData} forecastData={forecastData} />
+          // <WeatherData data={weatherData} forecastData={forecastData} />
         )}
       </div>
     </div>

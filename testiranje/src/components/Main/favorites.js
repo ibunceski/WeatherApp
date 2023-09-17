@@ -152,7 +152,7 @@ const Favorites = (props) => {
       <h6 className="fav--title">
         Favorite locations
       </h6>
-      <FavoritesSearch getData={getSearchValue} />
+      <FavoritesSearch getData={getSearchValue} favoritesNumber={favorites.length}/>
       </div>
       <div className="favoriteCards">
       {favorites.map(

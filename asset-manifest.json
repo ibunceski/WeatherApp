@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/WeatherApp/static/css/main.92fa1866.css",
+    "main.js": "/WeatherApp/static/js/main.1f3ff880.js",
+    "static/media/niagara.jpg": "/WeatherApp/static/media/niagara.a7d3c3f90623e7d231a7.jpg",
+    "index.html": "/WeatherApp/index.html",
+    "main.92fa1866.css.map": "/WeatherApp/static/css/main.92fa1866.css.map",
+    "main.1f3ff880.js.map": "/WeatherApp/static/js/main.1f3ff880.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.92fa1866.css",
+    "static/js/main.1f3ff880.js"
+  ]
+}
